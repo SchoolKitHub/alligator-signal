@@ -1,0 +1,438 @@
+/* panel.css – Glassmorphism Dark Theme for Assistant Panel */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+#agAssistant {
+  position: fixed;
+  top: 15%;
+  right: 20px;
+  width: 320px;
+  backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(10, 13, 22, 0.75);
+  border: 1px solid rgba(0, 242, 254, 0.15);
+  border-radius: 16px;
+  color: #e2e8f0;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  z-index: 10000000;
+  padding: 20px;
+  box-sizing: border-box;
+  user-select: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#agAssistant * {
+  box-sizing: border-box;
+}
+
+/* Header */
+.ag-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 10px;
+  cursor: grab;
+  user-select: none;
+}
+
+.ag-title {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #00f2fe;
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+}
+
+.ag-asset {
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px 8px;
+  border-radius: 6px;
+  color: #fff;
+}
+
+/* Price and Signal */
+.ag-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.ag-price-label {
+  font-size: 11px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.ag-price-val {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.ag-signal-container {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.ag-signal-lbl {
+  font-size: 10px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+}
+
+.ag-signal-val {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+/* Signal States */
+.sig-buy {
+  color: #2ecc71;
+  text-shadow: 0 0 20px rgba(46, 204, 113, 0.5);
+}
+
+.sig-sell {
+  color: #e74c3c;
+  text-shadow: 0 0 20px rgba(231, 76, 60, 0.5);
+}
+
+.sig-notrade {
+  color: #94a3b8;
+  text-shadow: none;
+}
+
+.ag-conf-bar-bg {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.ag-conf-bar-fg {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  transition: width 0.5s ease;
+}
+
+/* Confidence Score Text Readout */
+.ag-score-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 10px;
+  color: #94a3b8;
+  letter-spacing: 0.08em;
+  margin-top: 8px;
+  font-family: monospace;
+}
+
+.ag-score-val-text {
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.ag-score-max {
+  color: #64748b;
+  font-weight: 400;
+}
+
+/* Expiry and Latency Footer */
+.ag-foot {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  font-size: 10px;
+  color: #94a3b8;
+  margin-bottom: 15px;
+  font-family: monospace;
+  letter-spacing: 0.05em;
+}
+
+.ag-foot-c {
+  color: #00f2fe;
+  font-weight: 800;
+  transition: color 0.2s ease;
+  text-shadow: 0 0 8px rgba(0, 242, 254, 0.3);
+}
+
+.ag-foot-r {
+  color: #2ecc71;
+  font-weight: 600;
+}
+
+/* Details and Reasons */
+.ag-details-box {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 5px 0 10px;
+  font-size: 13px;
+  max-height: 140px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.ag-detail-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+  line-height: 1.4;
+  color: #cbd5e1;
+}
+
+.ag-detail-item:last-child {
+  margin-bottom: 0;
+}
+
+.ag-detail-icon {
+  font-size: 10px;
+  line-height: 1;
+}
+
+.ag-detail-icon.sig-buy {
+  color: #2ecc71;
+}
+
+.ag-detail-icon.sig-sell {
+  color: #e74c3c;
+}
+
+.ag-detail-icon.sig-notrade {
+  color: #94a3b8;
+}
+
+
+/* Journal Buttons */
+.ag-journal-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.ag-btn {
+  flex: 1;
+  border: none;
+  padding: 8px 0;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #0c101b;
+  text-transform: uppercase;
+}
+
+.ag-btn-win {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  box-shadow: 0 4px 12px rgba(46, 204, 113, 0.2);
+}
+
+.ag-btn-loss {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.2);
+}
+
+.ag-btn-draw {
+  background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+  box-shadow: 0 4px 12px rgba(148, 163, 184, 0.2);
+  color: #ffffff;
+}
+
+.ag-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.ag-btn:active {
+  transform: translateY(0);
+}
+
+/* Stats Footer */
+.ag-stats-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.ag-stat-item span {
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* Cooldown Overlay */
+.ag-cooldown-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 13, 22, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid var(--color-red);
+}
+
+.ag-cooldown-title {
+  color: #e74c3c;
+  font-weight: 800;
+  font-size: 16px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ag-cooldown-desc {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 15px;
+}
+
+.ag-cooldown-timer {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+  font-family: monospace;
+}
+
+/* Full-Screen Visual Crossover Neon Edge Flash Overlay */
+#agFlashOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99999999;
+  box-shadow: inset 0 0 0px 0px transparent;
+  transition: box-shadow 0.15s ease-out;
+}
+
+#agFlashOverlay.flash-buy {
+  animation: flashBuyPulse 1.0s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#agFlashOverlay.flash-sell {
+  animation: flashSellPulse 1.0s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@keyframes flashBuyPulse {
+  0% {
+    box-shadow: inset 0 0 35px rgba(46, 204, 113, 0.45), 
+                inset 0 0 15px rgba(46, 204, 113, 0.25);
+  }
+  100% {
+    box-shadow: inset 0 0 0px transparent;
+  }
+}
+
+@keyframes flashSellPulse {
+  0% {
+    box-shadow: inset 0 0 35px rgba(231, 76, 60, 0.45), 
+                inset 0 0 15px rgba(231, 76, 60, 0.25);
+  }
+  100% {
+    box-shadow: inset 0 0 0px transparent;
+  }
+}
+
+/* Trustpilot Rating Card */
+.ag-rating-card {
+  margin-top: 15px;
+  background: rgba(0, 182, 122, 0.08);
+  border: 1px solid rgba(0, 182, 122, 0.25);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 182, 122, 0.05);
+}
+
+.ag-rating-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #00B67A;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ag-rating-close {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.ag-rating-close:hover {
+  color: #ffffff;
+}
+
+.ag-rating-body p {
+  margin: 0 0 10px;
+  font-size: 10px;
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+
+.ag-rating-btn {
+  display: block;
+  background: #00B67A;
+  color: #0c101b;
+  text-align: center;
+  padding: 6px 0;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s;
+  text-transform: uppercase;
+}
+
+.ag-rating-btn:hover {
+  background: #009e6a;
+  transform: translateY(-1px);
+}
+
+.ag-rating-btn:active {
+  transform: translateY(0);
+}
+

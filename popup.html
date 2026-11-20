@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pocket Option Signal Assistant</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="title-section">
+        <h2>POCKET ASSISTANT</h2>
+        <span class="badge">V1.0</span>
+      </div>
+      <div class="status-indicator">
+        <div class="pulse-dot"></div>
+        <span class="status-text">Active</span>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="settings-tab">Settings</button>
+      <button class="tab-btn" data-tab="journal-tab">Journal</button>
+    </div>
+
+    <!-- Settings Tab Content -->
+    <div id="settings-tab" class="tab-content active">
+      <form id="settings-form">
+        <div class="form-group">
+          <label for="stake">Trade Stake ($)</label>
+          <input type="number" id="stake" min="1" step="1" required>
+          <div class="help-text">Used for calculating net profit statistics.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="threshold">Convergence Threshold (%)</label>
+          <input type="number" id="threshold" min="0.001" step="0.001" max="1" required>
+          <div class="help-text">Filters out flat markets. Lower = tighter lines needed.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="cooldownLimit">Loss Cooldown Limit</label>
+          <input type="number" id="cooldownLimit" min="1" step="1" required>
+          <div class="help-text">Consecutive losses before locking signal feed.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="cooldownDuration">Cooldown Duration (Min)</label>
+          <input type="number" id="cooldownDuration" min="1" step="1" required>
+          <div class="help-text">How long the trade signal lock persists.</div>
+        </div>
+
+        <div class="form-group-toggle">
+          <label for="soundEnabled">Sound Alarms</label>
+          <label class="switch">
+            <input type="checkbox" id="soundEnabled">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <button type="submit" id="save-settings-btn" class="submit-btn">SAVE CONFIGURATION</button>
+      </form>
+    </div>
+
+    <!-- Journal Tab Content -->
+    <div id="journal-tab" class="tab-content">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" id="stat-winrate">0%</div>
+          <div class="stat-label">Win Rate</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-netprofit">$0</div>
+          <div class="stat-label">Net Profit</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-total">0</div>
+          <div class="stat-label">Total Trades</div>
+        </div>
+      </div>
+
+      <div class="trade-log-container">
+        <h3>Recent Trade Log</h3>
+        <div class="table-wrapper">
+          <table class="trade-table">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Asset</th>
+                <th>Outcome</th>
+                <th>Profit</th>
+              </tr>
+            </thead>
+            <tbody id="trade-log-body">
+              <tr>
+                <td colspan="4" class="no-data">No logged trades yet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="action-footer">
+        <button id="clear-journal-btn" class="clear-btn">CLEAR TRADE JOURNAL</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="journal.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
